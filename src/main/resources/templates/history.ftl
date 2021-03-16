@@ -1,8 +1,11 @@
+<#import "/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <meta charset="UTF-8">
+    <link rel="stylesheet"
+          type="text/css" href="<@spring.url '/style/history.css'/>"/>
     <title>History</title>
 
 </head>
@@ -27,7 +30,7 @@
                 <td>${element.id}</td>
                 <td>${element.userName}</td>
                 <td>${element.start}</td>
-                <td><button>knopka</button></td>
+                <td><a class="btn btn-outline-light" style="border: 0" href="/web/cards/history/${element.id}">Переглянути</a></td>
             </tr>
         </#list>
         </tbody>

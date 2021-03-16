@@ -28,4 +28,8 @@ public class RoundService {
     public List<Round> getAll() {
         return  repository.findAll();
     }
+
+    public Round get(String id) {
+        return repository.findById(id).get();
+    }
 }

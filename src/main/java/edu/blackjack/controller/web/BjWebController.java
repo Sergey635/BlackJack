@@ -7,6 +7,7 @@ import edu.blackjack.service.round.RoundService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -129,10 +130,14 @@ public class BjWebController {
         return "history";
     }
     @RequestMapping("/history/{id}")
-    public String showRounds(@RequestParam String id, Model model){
-        List<Round> rounds = roundService.getAll();
-        model.addAttribute("rounds", rounds);
-        return "history";
+    public String showRounds(@PathVariable String id, Model model){
+        Round round = roundService.get(id);
+        List<Card> delivery = round.getDelivery();
+        model.addAttribute("delivery", delivery);
+        System.out.println(delivery.size());
+        model.addAttribute("round", round);
+        return "round";
     }
+
 
 }
